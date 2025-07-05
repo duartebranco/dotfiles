@@ -1,0 +1,41 @@
+syntax on
+
+" set viminfofile local
+set viminfofile=$XDG_STATE_HOME/vim/viminfo
+
+" Line numbers
+set number
+set relativenumber
+
+" tab shit
+set tabstop=4       " Number of spaces a tab counts for
+set shiftwidth=4    " Number of spaces for each step of autoindent
+set expandtab       " Use spaces instead of tabs
+set softtabstop=4   " Number of spaces tab key inserts/deletes
+
+" Select All
+nnoremap <C-a> ggVG
+
+" Copy
+vnoremap <C-c> "+y
+nnoremap <C-c> "+yy
+
+"
+" Plugins
+"
+call plug#begin('~/.config/vim/plugged')
+Plug 'ap/vim-css-color'
+Plug 'dylanaraps/wal.vim'
+call plug#end()
+
+
+colorscheme wal
+
+
+" 
+" auto-things after saving
+"
+autocmd BufWritePost */dwm/config.h !sudo make clean install
+autocmd BufWritePost */st/config.h !sudo make clean install
+autocmd BufWritePost */dwmblocks/config.h !sudo make clean install
+autocmd BufWritePost */dmenu/config.h !sudo make clean install
