@@ -1,0 +1,18 @@
+[submodule "app/dmenu"]
+	path = app/dmenu
+	url = git@github.com:duartebranco/dmenu.git
+[submodule "app/dwm"]
+	path = app/dwm
+	url = git@github.com:duartebranco/dwm.git
+[submodule "app/dwmblocks"]
+	path = app/dwmblocks
+	url = git@github.com:duartebranco/dwmblocks.git
+[submodule "app/st"]
+	path = app/st
+	url = git@github.com:duartebranco/st.git
+[submodule "app/startpage"]
+	path = app/startpage
+	url = git@github.com:duartebranco/startpage.git
+[submodule "app/zed-theme-wal"]
+	path = app/zed-theme-wal
+	url = git@github.com:duartebranco/zed-theme-wal.git
