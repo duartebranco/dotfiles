@@ -24,7 +24,7 @@ Everything was made to work with [pywal](https://github.com/eylles/pywal16).
 ## Programs
 
 - **Editor**: vim
-- **GUI Editor**: Zed + [zed-theme wal (I've contributed to)](https://github.com/Fuwn/zed-theme-wal)
+- **GUI Editor**: Zed + [zed-theme-wal (I've contributed to)](https://github.com/Fuwn/zed-theme-wal)
 - **File Manager**: ranger
 - **Document Viewer**: zathura
 - **Color Temperature**: redshift
