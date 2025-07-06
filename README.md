@@ -1,7 +1,7 @@
 # duarte's dotfiles
 
-![Desktop Screenshot 1](screenshot_1.png)
-![Desktop Screenshot 2](screenshot_3.png)
+![Desktop Screenshot 1](img/Screenshots/screenshot_1.png)
+![Desktop Screenshot 2](img/Screenshots/screenshot_3.png)
 
 These are my dotfiles for my dwm setup on arch.
 
