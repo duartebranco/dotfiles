@@ -4,13 +4,16 @@
 #
 # It creates/adds the Xresources colors portion for dwm 
 # Supposed to be run after the `wal` command
-input="${HOME}/.cache/wal/colors-wal-dwm.h"
+input="${HOME}/.cache/wal/colors.sh"
 output="${HOME}/.Xresources"
+
+# Source the colors file
+. "$input"
 
 # Write the header
 echo '! dwm' > "$output"
 
-# List of color variables and corresponding resource names
+# Map of color variables to Xresources names
 declare -A color_map=(
     [norm_fg]="normfgcolor"
     [norm_bg]="normbgcolor"
@@ -20,26 +23,20 @@ declare -A color_map=(
     [sel_border]="selbordercolor"
 )
 
-# Variable to store selbgcolor for reuse
-selbg_value=""
+# Define which colors from colors.sh to use for each dwm color
+declare -A color_sources=(
+    [norm_fg]="$color12"  # text color
+    [norm_bg]="$color0"
+    [norm_border]="$color8"
+    [sel_fg]="$foreground"
+    [sel_bg]="$color9"
+    [sel_border]="$color4"
+)
 
-# Extract color values from the input file and write to output
+# Write all color definitions to output
 for var in norm_fg norm_bg norm_border sel_fg sel_bg sel_border; do
-    if [[ $var == "sel_border" ]]; then
-        # Use the same color as selbgcolor for selbordercolor
-        value="$selbg_value"
-    else
-        # Extract the hex color value
-        value=$(grep "static const char $var" "$input" | sed -E 's/.*"#([0-9A-Fa-f]{6})".*/#\1/')
-        # Store selbgcolor value for later use
-        if [[ $var == "sel_bg" ]]; then
-            selbg_value="$value"
-        fi
-    fi
-
-    # Compose and write the resource line
-    printf "dwm.%s: %s\n" "${color_map[$var]}" "$value" >> "$output"
-
+    printf "dwm.%s: %s\n" "${color_map[$var]}" "${color_sources[$var]}" >> "$output"
+    
     # Add a blank line after sel_border
     if [[ $var == "sel_border" ]]; then
         echo "" >> "$output"
