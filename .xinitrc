@@ -2,12 +2,14 @@
 
 WALLPAPER=$(find ~/img/Wallpapers/ -type f | shuf -n 1)
 # Set random wallpaper and its colors
-wal -i "$WALLPAPER" -n
+wal --cols16 -i "$WALLPAPER" -n
 feh --bg-fill "$(< "${HOME}/.cache/wal/wal")" --no-fehbg
 
 # testing for a specific wallpaper
-# wal -i img/Wallpapers/Christ_in_the_Wilderness.png -n
-# feh --bg-fill img/Wallpapers/Christ_in_the_Wilderness.png --no-fehbg
+# WALLPAPER="img/Wallpapers/Dante_and_Virgil_in_Hell.png"
+# wal --cols16 -i img/Wallpapers/Dante_and_Virgil_in_Hell.png -n
+# wal -i img/Wallpapers/Dante_and_Virgil_in_Hell.png -n
+# feh --bg-fill img/Wallpapers/Dante_and_Virgil_in_Hell.png --no-fehbg
 
 # After running wal, we must reload some things
 # --------
@@ -26,6 +28,9 @@ feh --bg-fill "$(< "${HOME}/.cache/wal/wal")" --no-fehbg
 
 # Update startpage
 [ -x "$HOME/scripts/update-startpage.sh" ] && "$HOME/scripts/update-startpage.sh" $WALLPAPER
+
+# For zathura, who uses a user template
+[ -x "$HOME/scripts/zathura.sh" ] && "$HOME/scripts/zathura.sh"
 
 # Reload pywalfox
 pywalfox update

@@ -35,12 +35,13 @@ export HISTFILE="$XDG_STATE_HOME/bash/history"
 export PYTHON_HISTORY="$XDG_STATE_HOME/python/history"
 export W3M_DIR="$XDG_CONFIG_HOME/w3m"
 export XAUTHORITY="$XDG_RUNTIME_DIR/Xauthority" 
+export _JAVA_OPTIONS=-Djava.util.prefs.userRoot="$XDG_CONFIG_HOME/java"
 # Uncomment if you need to have a wgetrc
 # export WGETRC="$XDG_CONFIG_HOME/wgetrc" 
 
 # Build PS1 with pywal colors
-COLOR_USER=$(hex_to_ansi "$color5")
-COLOR_PATH=$(hex_to_ansi "$color6")
+COLOR_USER=$(hex_to_ansi "$color12")
+COLOR_PATH=$(hex_to_ansi "$color14")
 COLOR_GIT=$(hex_to_ansi "$color1")
 COLOR_RESET='\[\e[0m\]'
 
