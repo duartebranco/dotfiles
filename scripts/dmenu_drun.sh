@@ -1,6 +1,4 @@
 #!/bin/sh
-# Import the colors
-. "${HOME}/.cache/wal/colors.sh"
 
 # Build a list of app names and their exec commands, separated by a tab.
 APPS=$(find /usr/share/applications ~/.local/share/applications -name '*.desktop' 2>/dev/null | \
