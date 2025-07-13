@@ -1,6 +1,8 @@
 #!/bin/sh
 
-WALLPAPER=$(find ~/img/Wallpapers/ -type f | shuf -n 1)
+# WALLPAPER=$(find ~/img/Wallpapers/ -maxdepth 1 -type f | shuf -n 1)
+# WALLPAPER=$(find ~/img/Wallpapers/old/ -maxdepth 1 -type f | shuf -n 1)
+WALLPAPER=$(find ~/img/Wallpapers/sonic/ -maxdepth 1 -type f | shuf -n 1)
 # Set random wallpaper and its colors
 wal --cols16 -i "$WALLPAPER" -n
 feh --bg-fill "$(< "${HOME}/.cache/wal/wal")" --no-fehbg
@@ -32,12 +34,18 @@ feh --bg-fill "$(< "${HOME}/.cache/wal/wal")" --no-fehbg
 # For zathura, who uses a user template
 [ -x "$HOME/scripts/zathura.sh" ] && "$HOME/scripts/zathura.sh"
 
+# For calibre colors
+[ -x "$HOME/scripts/calibre.sh" ] && "$HOME/scripts/calibre.sh"
+
 # Reload pywalfox
 pywalfox update
 # --------
 
 # Invert touchpad scroll
 xinput set-prop 10 "libinput Natural Scrolling Enabled" 1 &
+
+mpd &
+[ -x "$HOME/scripts/current_song.sh" ] && "$HOME/scripts/current_song.sh" &
 
 picom -b &
 redshift &
