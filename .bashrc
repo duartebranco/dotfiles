@@ -8,6 +8,7 @@
 XDG_CONFIG_HOME=/home/duarte/.config
 XDG_CACHE_HOME=/home/duarte/.cache
 XDG_STATE_HOME=/home/duarte/.local/state
+XDG_DATA_HOME=/home/duarte/.local/share
 
 # Source pywal colors
 [ -f "$HOME/.cache/wal/colors.sh" ] && source "$HOME/.cache/wal/colors.sh"
@@ -36,6 +37,7 @@ export PYTHON_HISTORY="$XDG_STATE_HOME/python/history"
 export W3M_DIR="$XDG_CONFIG_HOME/w3m"
 export XAUTHORITY="$XDG_RUNTIME_DIR/Xauthority" 
 export _JAVA_OPTIONS=-Djava.util.prefs.userRoot="$XDG_CONFIG_HOME/java"
+export GNUPGHOME="$XDG_DATA_HOME/gnupg"
 # Uncomment if you need to have a wgetrc
 # export WGETRC="$XDG_CONFIG_HOME/wgetrc" 
 
