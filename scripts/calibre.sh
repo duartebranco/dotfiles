@@ -25,12 +25,12 @@ while IFS=":" read -r key value; do
     # Clean up the key and value
     key=$(echo "$key" | tr -d '[:space:]"' | sed 's/-/_/g')
     value=$(echo "$value" | tr -d '[:space:],"' | sed 's/-/_/g')
-    
+
     # Skip empty or malformed lines
     if [[ -z "$key" || -z "$value" ]]; then
         continue
     fi
-    
+
     COLORS["$key"]="$value"
 done < "$WAL_CACHE"
 
