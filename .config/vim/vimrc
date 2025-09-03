@@ -1,4 +1,13 @@
 syntax on
+set encoding=UTF-8
+
+""" Rest of the conf
+source ~/.config/vim/config/binds.vim
+source ~/.config/vim/config/lsp.vim
+source ~/.config/vim/config/statusline.vim
+source ~/.config/vim/config/filetree.vim
+source ~/.config/vim/config/plugins.vim
+source ~/.config/vim/config/writeonsave.vim
 
 " set viminfofile local
 set viminfofile=$XDG_STATE_HOME/vim/viminfo
@@ -13,34 +22,11 @@ set shiftwidth=4    " Number of spaces for each step of autoindent
 set expandtab       " Use spaces instead of tabs
 set softtabstop=4   " Number of spaces tab key inserts/deletes
 
-" toggle paste for pasting
-set pastetoggle=<F2>
-
-" Select All
-nnoremap <C-a> ggVG
-
-" Copy
-vnoremap <C-c> "+y
-nnoremap <C-c> "+yy
-
-"
-" Plugins
-"
-call plug#begin('~/.config/vim/plugged')
-Plug 'ap/vim-css-color'
-Plug 'dylanaraps/wal.vim'
-call plug#end()
-
-
+" color scheme
 colorscheme wal
 
+" white space
+highlight RedundantSpaces ctermbg=red guibg=red
+match RedundantSpaces /\s\+$\| \+\ze\t/
+autocmd BufWritePre * %s/\s\+$//e
 
-" 
-" auto-things after saving
-"
-autocmd BufWritePost */dwm/config.h !sudo make clean install
-autocmd BufWritePost */st/config.h !sudo make clean install
-autocmd BufWritePost */dwmblocks/config.h !sudo make clean install
-autocmd BufWritePost */dmenu/config.h !sudo make clean install
-
-autocmd BufWritePost */picom/picom.conf !killall picom && picom -b &
