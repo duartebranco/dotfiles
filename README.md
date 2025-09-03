@@ -28,6 +28,7 @@ Everything was made to work with [pywal](https://github.com/eylles/pywal16).
 - **File Manager**: ranger
 - **Document Viewer**: zathura
 - **Color Temperature**: redshift
+- **E-book Manager**: calibre
 
 ## Utilities
 
