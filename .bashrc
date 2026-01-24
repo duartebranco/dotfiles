@@ -2,14 +2,15 @@
 # ~/.bashrc
 #
 
+# Quick home cleanup
+# (even works in non-interactive mode)
+rm -rf ~/.vscode ~/.stremio-server ~/.pki ~/.m2 ~/.dotnet ~/.java ~/.skiko ~/.rustup ~/.lemminx ~/.sts4 ~/.emulator_console_auth_token ~/.eclipse ~/.sonar ~/.mozilla
+
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
 export PATH="$HOME/.local/bin:$PATH"
-export PATH="$HOME/app/flutter/bin:$PATH"
-export ANDROID_HOME="$HOME/app/android-sdk"
-export ANDROID_SDK_ROOT="$HOME/app/android-sdk"
-export PATH="$ANDROID_HOME/emulator:$ANDROID_HOME/platform-tools:$ANDROID_HOME/cmdline-tools/latest/bin:$ANDROID_HOME/build-tools/35.0.1:$PATH"
+export CAPACITOR_ANDROID_STUDIO_PATH="/usr/bin/android-studio"
 
 XDG_CONFIG_HOME=/home/duarte/.config
 XDG_CACHE_HOME=/home/duarte/.cache
@@ -30,10 +31,10 @@ alias grep='grep --color=auto'
 
 # my aliases
 alias ll='ls -la'
-alias firefox='/home/duarte/scripts/firefox.sh'
 alias wget='wget --hsts-file="$XDG_CACHE_HOME/wget-hsts"'
 alias dotfiles='/usr/bin/git --git-dir=$HOME/app/dotfiles/ --work-tree=$HOME'
-alias vscodium='vscodium --extensions-dir "$XDG_DATA_HOME/vscode"'
+alias code='code --extensions-dir "$XDG_DATA_HOME/vscode"'
+alias nc='ncat'
 
 # exports (for clean up $HOME)
 export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npm/npmrc"
@@ -45,6 +46,7 @@ export _JAVA_OPTIONS=-Djava.util.prefs.userRoot="$XDG_CONFIG_HOME/java"
 export GNUPGHOME="$XDG_DATA_HOME/gnupg"
 alias yarn='yarn --use-yarnrc "$XDG_CONFIG_HOME/yarn/config"'
 export GRADLE_USER_HOME="$XDG_DATA_HOME"/gradle
+export DOCKER_CONFIG="$XDG_CONFIG_HOME"/docker
 # Uncomment if you need to have a wgetrc
 # export WGETRC="$XDG_CONFIG_HOME/wgetrc"
 
