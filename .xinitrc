@@ -2,9 +2,10 @@
 
 # Set random wallpaper and its colors
 
-# WALLPAPER=$(find ~/img/Wallpapers/ -maxdepth 1 -type f | shuf -n 1)
+WALLPAPER=$(find ~/img/Wallpapers/ -maxdepth 1 -type f | shuf -n 1)
 # WALLPAPER=$(find ~/img/Wallpapers/old/ -maxdepth 1 -type f | shuf -n 1)
-WALLPAPER=$(find ~/img/Wallpapers/sonic/ -maxdepth 1 -type f | shuf -n 1)
+# WALLPAPER=$(find ~/img/Wallpapers/religious/ -maxdepth 1 -type f | shuf -n 1)
+# WALLPAPER=$(find ~/img/Wallpapers/sonic/ -maxdepth 1 -type f | shuf -n 1)
 
 wal --cols16 -i "$WALLPAPER" -n
 feh --bg-fill "$(< "${HOME}/.cache/wal/wal")" --no-fehbg
@@ -24,11 +25,10 @@ killall dunst
 dunst >/dev/null 2>&1 &
 
 # Zed
-[ -x "$HOME/app/zed-theme-wal/generate_theme" ] && "$HOME/app/zed-theme-wal/generate_theme" --mode readability
+[ -x "$HOME/.local/share/zed-theme-wal/generate_theme" ] && "$HOME/.local/share/zed-theme-wal/generate_theme" --mode readability
 
 # Startpage
-# starttree.py
-(cd "$HOME/app/startpage" && ./update-startpage.sh)
+(cd "$HOME/.local/share/starttree" && ./update.sh)
 
 # Zathura
 ln -sf ~/.cache/wal/zathurarc ~/.config/zathura/zathurarc
@@ -49,6 +49,8 @@ picom -b &
 
 redshift &
 
+syncthing --no-browser > /dev/null 2>&1 &
+
 # ---------------------------------------------
 # Hardware things (probably differs from yours)
 # ---------------------------------------------
@@ -58,6 +60,9 @@ xinput set-prop "ELAN0524:01 04F3:3215 Touchpad" "libinput Natural Scrolling Ena
 
 # Monitor
 xrandr --output eDP-1 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output HDMI-1 --mode 1920x1080 --pos 0x0 --rotate normal --output DP-1 --off --output DP-2 --off --output DP-3 --off --output DP-4 --off
+
+# Trackpad
+libinput-gestures &
 
 # --------
 # exec dwm

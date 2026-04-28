@@ -1,7 +1,7 @@
 "
 " lsp
 "
-let g:lsp_diagnostics_enabled = 0
+let g:lsp_diagnostics_enabled = 1
 " (add more languages)
 "" python
 if executable('pylsp')
@@ -80,6 +80,14 @@ if executable('kotlin-language-server')
         \     expand('kotlin-language-server')
         \ ]},
         \ 'whitelist': ['kotlin']
+        \ })
+endif
+"" latex
+if executable('texlab')
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'texlab',
+        \ 'cmd': {server_info->['texlab']},
+        \ 'allowlist': ['tex', 'latex'],
         \ })
 endif
 

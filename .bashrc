@@ -4,18 +4,27 @@
 
 # Quick home cleanup
 # (even works in non-interactive mode)
-rm -rf ~/.vscode ~/.stremio-server ~/.pki ~/.m2 ~/.dotnet ~/.java ~/.skiko ~/.rustup ~/.lemminx ~/.sts4 ~/.emulator_console_auth_token ~/.eclipse ~/.sonar ~/.mozilla
+rm -rf ~/.vscode ~/.stremio-server ~/.pki ~/.m2 ~/.dotnet ~/.java ~/.skiko ~/.rustup ~/.lemminx ~/.sts4 ~/.emulator_console_auth_token ~/.eclipse ~/.sonar ~/.mozilla ~/.ipython ~/.anaconda ~/.conda ~/.condarc ~/.bun ~/.jupyter ~/.mongodb ~/.opencode ~/.cassandra ~/.android ~/.copilot
 
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
 export PATH="$HOME/.local/bin:$PATH"
-export CAPACITOR_ANDROID_STUDIO_PATH="/usr/bin/android-studio"
+
+export ANDROID_SDK_ROOT="/home/duarte/.local/share/android-sdk"
+export ANDROID_HOME="$ANDROID_SDK_ROOT"
+export ANDROID_AVD_HOME="$HOME/doc/Vms/avd"
+export ANDROID_EMULATOR_HOME="$XDG_CONFIG_HOME/android"
+export PATH="$ANDROID_SDK_ROOT/cmdline-tools/latest/bin:$ANDROID_SDK_ROOT/platform-tools:$ANDROID_SDK_ROOT/emulator:$PATH"
 
 XDG_CONFIG_HOME=/home/duarte/.config
 XDG_CACHE_HOME=/home/duarte/.cache
 XDG_STATE_HOME=/home/duarte/.local/state
 XDG_DATA_HOME=/home/duarte/.local/share
+XDG_BIN_DIR="$HOME/.local/bin"
+
+# claude
+export CLAUDE_CONFIG_DIR="${XDG_CONFIG_HOME:-$HOME/.config}/claude"
 
 # Source pywal colors
 [ -f "$HOME/.cache/wal/colors.sh" ] && source "$HOME/.cache/wal/colors.sh"
@@ -32,7 +41,7 @@ alias grep='grep --color=auto'
 # my aliases
 alias ll='ls -la'
 alias wget='wget --hsts-file="$XDG_CACHE_HOME/wget-hsts"'
-alias dotfiles='/usr/bin/git --git-dir=$HOME/app/dotfiles/ --work-tree=$HOME'
+alias dotfiles='/usr/bin/git --git-dir=$XDG_DATA_HOME/dotfiles/ --work-tree=$HOME'
 alias code='code --extensions-dir "$XDG_DATA_HOME/vscode"'
 alias nc='ncat'
 

@@ -1,4 +1,6 @@
 from ranger.api.commands import Command
+import os
+import subprocess
 
 class mount(Command):
     """:mount.
