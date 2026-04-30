@@ -77,3 +77,6 @@ parse_git_branch() {
 PS1="[${COLOR_USER}\u@\h ${COLOR_PATH}\w\$(parse_git_branch)${COLOR_RESET}]\$ "
 # PS1='[\u@\h \W]\$ '
 
+
+# opencode
+export PATH=/home/duarte/.opencode/bin:$PATH
