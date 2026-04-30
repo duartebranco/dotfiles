@@ -25,7 +25,7 @@ killall dunst
 dunst >/dev/null 2>&1 &
 
 # Zed
-[ -x "$HOME/.local/share/zed-theme-wal/generate_theme" ] && "$HOME/.local/share/zed-theme-wal/generate_theme" --mode readability
+[ -x "$HOME/.local/src/zed-theme-wal/generate_theme" ] && "$HOME/.local/src/zed-theme-wal/generate_theme" --mode readability
 
 # Startpage
 (cd "$HOME/.local/share/starttree" && ./update.sh)
