@@ -1,5 +1,8 @@
 #!/bin/sh
 
+# Disable portal file chooser (prevents apps from breaking after gtk4 updates)
+export GTK_USE_PORTAL=0
+
 # Set random wallpaper and its colors
 
 WALLPAPER=$(find ~/img/Wallpapers/ -maxdepth 1 -type f | shuf -n 1)
