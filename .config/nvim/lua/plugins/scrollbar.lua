@@ -1,3 +1,5 @@
+local colors = require("pywal16.core").get_colors()
+
 require("scrollbar").setup({
   show_in_active_only = true,
   hide_if_all_visible = true,
@@ -15,7 +17,9 @@ require("scrollbar.handlers.search").setup()
 require("scrollbar.handlers.gitsigns").setup()
 
 local hl = vim.api.nvim_set_hl
-hl(0, "ScrollbarHandle",          { link = "CursorColumn" })
+hl(0, "ScrollbarHandle",          { bg = colors.color8, fg = colors.color7 })
+hl(0, "ScrollbarCursorHandle",    { bg = colors.color8, fg = colors.color7 })
+hl(0, "ScrollbarCursor",          { fg = colors.color7 })
 hl(0, "ScrollbarSearch",          { link = "Search" })
 hl(0, "ScrollbarSearchHandle",    { link = "Search" })
 hl(0, "ScrollbarError",           { link = "DiagnosticVirtualTextError" })

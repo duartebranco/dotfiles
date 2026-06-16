@@ -7,6 +7,7 @@ require("plugins.hlslens")
 require("plugins.scrollbar")
 require("plugins.statusline")
 require("plugins.tree")
+require("plugins.toggleterm")
 
 require("config.binds")
 -- require("config.lazy")

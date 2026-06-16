@@ -40,6 +40,10 @@ local plugins = {
     },
   },
   {
+    'akinsho/toggleterm.nvim',
+    version = '*',
+  },
+  {
     'kdheepak/lazygit.nvim',
     lazy = true,
     cmd = {
@@ -53,8 +57,11 @@ local plugins = {
         "nvim-lua/plenary.nvim",
     },
     keys = {
-        { "<C-A-b>", "<cmd>LazyGit<cr>", desc = "LazyGit" }
+        { "<C-S-j>", "<cmd>LazyGit<cr>", desc = "LazyGit" }
     }
+  },
+  {
+    'neovim/nvim-lspconfig',
   },
 }
 require("lazy").setup(plugins, {
